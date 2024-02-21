@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-grey-100: hsl(240, 9%, 89%);
+  --color-grey-200: hsl(240, 7%, 78%);
+  --color-blue-hover: #02799d;
+  --bg-image: none;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+header {
+  padding: 4rem 7.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li a {
+  color: var(--color-grey-200);
+  font-size: 2.2rem;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+ul li a.selected {
+  color: var(--color-white);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+}
+
+ul li a:hover {
+  color: var(--color-grey-100);
+}
+
+a {
+  text-decoration: none;
+}
+
+#app section {
+  animation: fade-in 1s ease;
+}
+
+#app::before {
+  content: "";
+  background: var(--bg-image);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: background 1s;
+}
+
+#app.home {
+  --bg-image: url(./assets/bg-home.png);
+}
+
+#app.universe {
+  --bg-image: url(./assets/bg-universe.png);
+}
+
+#app.exploration {
+  --bg-image: url(./assets/bg-exploration.png);
+}
+
+#app.error-404 {
+  --bg-image: url(./assets/bg-404.png);
+}
+
+#app.home,
+#app.error-404 {
+  margin-top: -12rem;
+  align-self: center;
+}
+
+.skidoodle {
+  width: 64.8rem;
+  display: grid;
+  gap: 1.6rem;
+  margin: 6.3rem 10.2rem;
+}
+
+h1 {
+  color: var(--color-grey-100);
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 6rem;
+}
+
+p {
+  color: var(--color-grey-200);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+}
+
+button {
+  background-color: transparent;
+  color: var(--color-white);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  padding: 1.2rem 3.2rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-white);
+  color: var(--color-blue-hover);
+}
+
+.row-center {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-24 {
+  gap: 2.4rem;
+}
+
+.gap-32 {
+  gap: 3.2rem;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
